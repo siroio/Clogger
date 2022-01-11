@@ -9,10 +9,10 @@ import java.util.Arrays;
 public final class Logger {
 
     // コンソールに文字列出力
-    public static void print(final String messages) {
-        StringBuilder sb = new StringBuilder();
+    public static void print(final String... messages) {
+        StringBuffer sb = new StringBuffer();
         sb.append("[CLOGGER] ");
-        sb.append(messages);
+        for(String s : messages) sb.append(s);
         Main.getInstance
             .getServer()
             .getConsoleSender()
@@ -20,11 +20,11 @@ public final class Logger {
     }
 
     // 色付きで出力
-    public static void print(ChatColor Color, final String messages) {
-        StringBuilder sb = new StringBuilder();
+    public static void print(ChatColor Color, final String... messages) {
+        StringBuffer sb = new StringBuffer();
         sb.append(Color);
         sb.append("[CLOGGER] ");
-        sb.append(messages);
+        for(String s : messages) sb.append(s);
         Main.getInstance
                 .getServer()
                 .getConsoleSender()
