@@ -12,15 +12,7 @@ public final class Logger {
 
     // コンソールに文字列出力
     public static void print(final String... messages) {
-        sb = new StringBuffer();
-        sb.append("[CLOGGER] ");
-        for(String s : messages) sb.append(s);
-        Main.getInstance
-            .getServer()
-            .getConsoleSender()
-            .sendMessage(sb.toString());
-
-        sb.setLength(0);
+        print(ChatColor.WHITE, messages);
     }
 
     // 色付きで出力
