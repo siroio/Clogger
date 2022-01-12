@@ -10,9 +10,10 @@ import com.github.siroio.commandlog.clogger.Utils.Logger;
 public final class Main extends JavaPlugin {
 
     public static Main getInstance;
-    public EventManager eventManager;
+    private final EventManager eventManager;
 
-    public Main() { getInstance = this;
+    public Main() {
+        getInstance = this;
         eventManager = new EventManager(this);
     }
 
