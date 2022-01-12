@@ -1,10 +1,9 @@
 package com.github.siroio.commandlog.clogger;
 
 import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
+import com.github.siroio.commandlog.clogger.Commands.Manager.CommandManager;
+import com.github.siroio.commandlog.clogger.Commands.cmd;
 import com.github.siroio.commandlog.clogger.Events.Manager.EventManager;
-import com.github.siroio.commandlog.clogger.Events.Manager.EventRegister;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.github.siroio.commandlog.clogger.Utils.Logger;
 
@@ -12,12 +11,10 @@ public final class Main extends JavaPlugin {
 
     public static Main getInstance;
     private final EventManager eventManager;
-    private PlayerBeanManager pbm;
 
     public Main() {
         getInstance = this;
         eventManager = new EventManager(this);
-        pbm = new PlayerBeanManager();
     }
 
     @Override
@@ -25,6 +22,7 @@ public final class Main extends JavaPlugin {
         // Plugin startup logic
         Logger.print("プラグインが有効化されました");
         eventManager.loadEvent();
+        //getCommand("clogger").setExecutor(new cmd());
     }
 
     @Override
@@ -32,9 +30,6 @@ public final class Main extends JavaPlugin {
         // Plugin shutdown logic
         Logger.print("プラグインが無効化されました");
         eventManager.unLoadEvent();
-    }
-
-    public PlayerBeanManager getPbm() {
-        return pbm;
+        PlayerBeanManager.clearPlayerList();
     }
 }

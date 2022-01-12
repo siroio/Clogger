@@ -2,7 +2,9 @@ package com.github.siroio.commandlog.clogger.Beans;
 
 import org.bukkit.Location;
 
+import javax.xml.datatype.DatatypeFactory;
 import java.io.Serializable;
+import java.util.ArrayDeque;
 import java.util.Date;
 import java.util.Queue;
 
@@ -10,7 +12,7 @@ public class PlayerBean implements Serializable {
 
     public PlayerBean(){}
     private String name;
-    private Queue<CommandBean> commandList;
+    private Queue<CommandBean> commandList = new ArrayDeque<>();
 
     // SETTER //
     public void setName(String name) {

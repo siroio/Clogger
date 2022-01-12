@@ -6,29 +6,31 @@ import java.util.HashMap;
 
 public class PlayerBeanManager {
 
-    private HashMap<Player, PlayerBean> PlayerList;
+    private static HashMap<Player, PlayerBean> PlayerList = new HashMap<>();
 
-    public PlayerBeanManager() {
-        PlayerList = new HashMap<>();
-    }
-
-    public void addPlayer(Player player, PlayerBean bean) {
+    public static void addPlayer(Player player, PlayerBean bean) {
         PlayerList.put(player, bean);
     }
 
-    public void removePlayer(Player player) {
+    public static void removePlayer(Player player) {
         PlayerList.remove(player);
     }
 
-    public void setPlayerBean(Player player, PlayerBean bean) {
-        PlayerList.replace(player, bean);
+    public static void setPlayerBean(Player player, PlayerBean bean) {
+        if(PlayerList.containsKey(player)) PlayerList.replace(player, bean);
+        else PlayerList.put(player, bean);
+
     }
 
-    public final PlayerBean getPlayerBean(Player player) {
+    public static final PlayerBean getPlayerBean(Player player) {
         return PlayerList.get(player);
     }
 
-    public final HashMap<Player, PlayerBean> getPlayerList() {
+    public static final HashMap<Player, PlayerBean> getPlayerList() {
         return PlayerList;
+    }
+
+    public static void clearPlayerList() {
+        PlayerList.clear();
     }
 }

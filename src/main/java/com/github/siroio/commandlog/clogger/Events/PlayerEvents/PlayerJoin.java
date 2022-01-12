@@ -2,7 +2,7 @@ package com.github.siroio.commandlog.clogger.Events.PlayerEvents;
 
 import com.github.siroio.commandlog.clogger.Beans.CommandBean;
 import com.github.siroio.commandlog.clogger.Beans.PlayerBean;
-import com.github.siroio.commandlog.clogger.Main;
+import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,10 +16,8 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         PlayerBean p_bean = new PlayerBean();
-        CommandBean c_bean = new CommandBean();
 
         p_bean.setName(player.getName());
-        p_bean.setCommand(c_bean);
-        Main.getInstance.getPbm().addPlayer(player, p_bean);
+        PlayerBeanManager.addPlayer(player, p_bean);
     }
 }
