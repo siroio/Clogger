@@ -12,7 +12,7 @@ public final class Logger {
 
     // コンソールに文字列出力
     public static void print(final String... messages) {
-        print(ChatColor.WHITE, messages);
+        print(ChatColor.GRAY, messages);
     }
 
     // 色付きで出力

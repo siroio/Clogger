@@ -12,40 +12,33 @@ public final class EventRegister {
 
     private final Plugin plugin;
 
-    private final HashMap<String, Listener> EventList;
+    private final HashMap<String, Listener> listenerList;
 
     public EventRegister(Plugin plugin) {
         this.plugin = plugin;
-        EventList = new HashMap<>();
+        listenerList = new HashMap<>();
     }
 
     // イベントの追加
     public void addEvent(Listener listener) {
-        EventList.put(listener.getClass().getSimpleName(), listener);
+        listenerList.put(listener.getClass().getSimpleName(), listener);
     }
 
     // イベントを登録
     public void Register() {
-        EventList.values().forEach((event) -> {
+        listenerList.values().forEach((listener) -> {
             plugin.getServer()
                   .getPluginManager()
-                  .registerEvents(event, plugin);
+                  .registerEvents(listener, plugin);
 
-            Logger.print(event.getClass().getSimpleName(), "を登録しました。");
-        });
-    }
-
-    // イベントの登録解除
-    public void unRegister(Event event) {
-        EventList.values().forEach((listener) -> {
-            event.getHandlers().unregister(listener);
-            EventList.remove(listener.getClass().getSimpleName());
+            Logger.print(listener.getClass().getSimpleName(), "を登録しました。");
         });
     }
 
     // すべてのイベントの登録解除
     public void unRegisterAll() {
         HandlerList.unregisterAll();
-        EventList.clear();
+        listenerList.clear();
+        Logger.print("すべてのイベントの登録を解除しました。");
     }
 }
