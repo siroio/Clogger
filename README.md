@@ -1,4 +1,4 @@
 # コマンドのログを残すプラグイン
 
 ## 使い方
-- PluginsフォルダにPluginを入れる
+- PluginsフォルダにClogger.jsrを入れる
