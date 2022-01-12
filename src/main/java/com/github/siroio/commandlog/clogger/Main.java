@@ -1,5 +1,6 @@
 package com.github.siroio.commandlog.clogger;
 
+import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
 import com.github.siroio.commandlog.clogger.Events.Manager.EventManager;
 import com.github.siroio.commandlog.clogger.Events.Manager.EventRegister;
 import org.bukkit.Bukkit;
@@ -11,10 +12,12 @@ public final class Main extends JavaPlugin {
 
     public static Main getInstance;
     private final EventManager eventManager;
+    private PlayerBeanManager pbm;
 
     public Main() {
         getInstance = this;
         eventManager = new EventManager(this);
+        pbm = new PlayerBeanManager();
     }
 
     @Override
@@ -29,5 +32,9 @@ public final class Main extends JavaPlugin {
         // Plugin shutdown logic
         Logger.print("プラグインが無効化されました");
         eventManager.unLoadEvent();
+    }
+
+    public PlayerBeanManager getPbm() {
+        return pbm;
     }
 }

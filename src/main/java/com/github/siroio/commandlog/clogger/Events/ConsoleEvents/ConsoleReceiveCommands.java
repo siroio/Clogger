@@ -1,10 +1,9 @@
-package com.github.siroio.commandlog.clogger.Events.Console;
+package com.github.siroio.commandlog.clogger.Events.ConsoleEvents;
 
 import com.github.siroio.commandlog.clogger.Utils.Broadcast;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerCommandEvent;
 
 public class ConsoleReceiveCommands implements Listener {
