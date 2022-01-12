@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerCommandEvent;
 
 public class ConsoleReceiveCommands implements Listener {
-    // プレイヤーが実行したコマンドが処理される前に呼び出される。
+    // プレイヤー以外が実行したコマンドが処理される前に呼び出される。
     @EventHandler
     public void ReceiveConsoleCommand(ServerCommandEvent event) {
         Broadcast.sendMessage(
