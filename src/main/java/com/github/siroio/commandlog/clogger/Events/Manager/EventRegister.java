@@ -48,17 +48,4 @@ public final class EventRegister {
         HandlerList.unregisterAll();
         EventList.clear();
     }
-
-    // リスナーを検索
-    private Listener getListener(Listener listener) {
-
-        for (Listener listener_ : EventList.values()) {
-            if (listener.equals(listener_)) return listener_;
-        }
-        return null;
-    }
-
-    public HashMap<String, Listener> getEventList() {
-        return EventList;
-    }
 }
