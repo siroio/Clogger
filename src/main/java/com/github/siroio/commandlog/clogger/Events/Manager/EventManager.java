@@ -1,6 +1,7 @@
 package com.github.siroio.commandlog.clogger.Events.Manager;
 
 import com.github.siroio.commandlog.clogger.Events.ConsoleEvents.ConsoleReceiveCommands;
+import com.github.siroio.commandlog.clogger.Events.Inventory.InventoryClickEvents;
 import com.github.siroio.commandlog.clogger.Events.PlayerEvents.PlayerJoin;
 import com.github.siroio.commandlog.clogger.Events.PlayerEvents.PlayerReceiveCommands;
 import org.bukkit.plugin.Plugin;
@@ -19,6 +20,7 @@ public class EventManager {
         eventRegister.addEvent(new PlayerReceiveCommands());
         eventRegister.addEvent(new ConsoleReceiveCommands());
         eventRegister.addEvent(new PlayerJoin());
+        eventRegister.addEvent(new InventoryClickEvents());
 
         /// ~~~ 削除をしないでください ~~~ ///
         eventRegister.Register();
