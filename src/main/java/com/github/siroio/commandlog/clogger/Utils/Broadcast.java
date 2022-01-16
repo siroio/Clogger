@@ -20,6 +20,10 @@ public class Broadcast {
         sendMessage(color, false, messages);
     }
 
+    public static void sendMessage(boolean op_only, String... messages) {
+        sendMessage(ChatColor.WHITE, op_only, messages);
+    }
+
     // opのみに出力するかを指定
     public static void sendMessage(ChatColor color, boolean op_only, String... messages) {
         sb.append(color);

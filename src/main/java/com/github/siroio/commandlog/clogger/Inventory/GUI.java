@@ -12,12 +12,14 @@ import java.util.Objects;
 
 public abstract class GUI implements InventoryHolder {
     protected Inventory inventory;
+    protected String InventoryTitle = "";
+    protected int InventorySize = 0;
 
-    public GUI(String name, int size) {
-        inventory = Bukkit.createInventory(this, 9, name);
+    protected void initInventory() {
+        inventory = Bukkit.createInventory(this, InventorySize, InventoryTitle);
     }
 
-    protected abstract void InitGUI();
+    protected abstract void initGUI();
 
     protected ItemStack createItem(Material item, String name, String... lore) {
         // make item data

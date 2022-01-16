@@ -22,15 +22,19 @@ public class PlayerBeanManager {
 
     }
 
-    public static final PlayerBean getPlayerBean(Player player) {
+    public static PlayerBean getPlayerBean(Player player) {
         return PlayerList.get(player);
     }
 
-    public static final HashMap<Player, PlayerBean> getPlayerList() {
+    public static HashMap<Player, PlayerBean> getPlayerList() {
         return PlayerList;
     }
 
     public static void clearPlayerList() {
         PlayerList.clear();
+    }
+
+    public static boolean containPlayer(Player player) {
+        return PlayerList.containsKey(player);
     }
 }

@@ -1,7 +1,6 @@
 package com.github.siroio.commandlog.clogger;
 
 import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
-import com.github.siroio.commandlog.clogger.Commands.Manager.CommandManager;
 import com.github.siroio.commandlog.clogger.Commands.cmd;
 import com.github.siroio.commandlog.clogger.Events.Manager.EventManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,7 +21,7 @@ public final class Main extends JavaPlugin {
         // Plugin startup logic
         Logger.print("プラグインが有効化されました");
         eventManager.loadEvent();
-        //getCommand("clogger").setExecutor(new cmd());
+        getCommand("clogger").setExecutor(new cmd());
     }
 
     @Override

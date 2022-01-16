@@ -1,18 +1,17 @@
 package com.github.siroio.commandlog.clogger.Beans;
 
+import com.github.siroio.commandlog.clogger.Utils.GENID;
 import org.bukkit.Location;
 
 import javax.xml.datatype.DatatypeFactory;
 import java.io.Serializable;
-import java.util.ArrayDeque;
-import java.util.Date;
-import java.util.Queue;
+import java.util.*;
 
 public class PlayerBean implements Serializable {
 
     public PlayerBean(){}
     private String name;
-    private Queue<CommandBean> commandList = new ArrayDeque<>();
+    private HashMap<UUID, CommandBean> commandList = new HashMap();
 
     // SETTER //
     public void setName(String name) {
@@ -20,7 +19,7 @@ public class PlayerBean implements Serializable {
     }
 
     public void setCommand(CommandBean command) {
-        this.commandList.add(command);
+        this.commandList.put(GENID.getUUID(), command);
     }
 
     // GETTER //
@@ -28,7 +27,7 @@ public class PlayerBean implements Serializable {
         return name;
     }
 
-    public final Queue<CommandBean> getCommand() {
+    public final HashMap<UUID, CommandBean> getCommand() {
         return commandList;
     }
 

@@ -8,7 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class PlayerJoin implements Listener {
+public class PlayerJoinEvents implements Listener {
 
     // プレイヤーがサーバー参加時に実行される。
     // プレヤーとコマンドのBeanを作成追加

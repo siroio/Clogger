@@ -23,6 +23,10 @@ public class PlayerReceiveCommands implements Listener {
         CommandBean command = new CommandBean();
         PlayerBean bean = new PlayerBean();
 
+        if(PlayerBeanManager.containPlayer(player)) {
+            bean = PlayerBeanManager.getPlayerBean(player);
+        }
+
         // コマンドの追加
         command.setCommand(event.getMessage());
         command.setDate(DateGetter.now());
