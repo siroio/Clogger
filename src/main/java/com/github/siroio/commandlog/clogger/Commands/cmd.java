@@ -6,6 +6,7 @@ import com.github.siroio.commandlog.clogger.Inventory.GUI;
 import com.github.siroio.commandlog.clogger.Inventory.InvGUIs.testGUI;
 import com.github.siroio.commandlog.clogger.Main;
 import com.github.siroio.commandlog.clogger.Utils.Broadcast;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,28 +27,35 @@ public class cmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!command.getName().equalsIgnoreCase("clogger")) return false;
-        Player player;
+        Player player = null;
         if(sender instanceof Player) player = ((Player) sender).getPlayer();
+
+
+        if(player != null && player.isOp() && args[0].equalsIgnoreCase("test")) {
+            GUI gui = new testGUI();
+            player.openInventory(gui.getInventory());
+            return true;
+        }
+
         Player target = null;
         for(Player p : Main.getInstance.getServer().getOnlinePlayers()) {
             if(p.getName().equalsIgnoreCase(args[0])) target = p;
         }
+
+        if(target == null) return false;
+
         var pBean = PlayerBeanManager.getPlayerBean(target);
-
-        Broadcast.sendMessage(true, "サイズ", String.valueOf(pBean.getCommand().size()));
-
-        Broadcast.sendMessage(true, pBean.getName());
-        pBean.getCommand().values().forEach((list) -> {
-            Broadcast.sendMessage(true, list.getCommand());
-            Broadcast.sendMessage(true,list.getDate());
+        target.sendMessage(pBean.getCommandList().size() +"");
+        pBean.getCommandList().forEach((list)-> {
+            Broadcast.sendMessage(ChatColor.AQUA, "------------", pBean.getName(), "--------------");
+            Broadcast.sendMessage(true, "コマンド: ", list.getCommand());
+            Broadcast.sendMessage(true, "日付: ", list.getDate());
             Broadcast.sendMessage(true,
-                   "X:" + ((int) list.getLocation().getX()) + ":" +
-                   "Y:" + ((int) list.getLocation().getY()) + ":" +
-                   "Z:" + ((int) list.getLocation().getZ())
+                    "X:", String.valueOf(((int) list.getLocation().getX())), ", ",
+                    "Y:", String.valueOf((int) list.getLocation().getY()) , ", " ,
+                    "Z:", String.valueOf((int) list.getLocation().getZ())
             );
         });
-
-        Broadcast.sendMessage("c 5");
         return false;
     }
 }

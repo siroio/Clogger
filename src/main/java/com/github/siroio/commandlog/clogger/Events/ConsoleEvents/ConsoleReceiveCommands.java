@@ -10,6 +10,7 @@ public class ConsoleReceiveCommands implements Listener {
     // プレイヤー以外が実行したコマンドが処理される前に呼び出される。
     @EventHandler
     public void ReceiveConsoleCommand(ServerCommandEvent event) {
+        if(event.getSender().getName().equals("@")) return;
         Broadcast.sendMessage(
                 ChatColor.GRAY,
                 "[CLOGGER] ",

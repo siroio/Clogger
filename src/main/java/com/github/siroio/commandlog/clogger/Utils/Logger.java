@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public final class Logger {
 
-    private static StringBuffer sb;
+    private static StringBuilder sb;
 
     // コンソールに文字列出力
     public static void print(final String... messages) {
@@ -17,7 +17,7 @@ public final class Logger {
 
     // 色付きで出力
     public static void print(ChatColor Color, final String... messages) {
-        sb = new StringBuffer();
+        sb = new StringBuilder();
         sb.append(Color);
         sb.append("[CLOGGER] ");
         for(String s : messages) sb.append(s);

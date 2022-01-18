@@ -23,6 +23,7 @@ public class PlayerReceiveCommands implements Listener {
         CommandBean command = new CommandBean();
         PlayerBean bean = new PlayerBean();
 
+        // PlayerBeanが存在しているか確認
         if(PlayerBeanManager.containPlayer(player)) {
             bean = PlayerBeanManager.getPlayerBean(player);
         }
@@ -34,7 +35,7 @@ public class PlayerReceiveCommands implements Listener {
 
         // プレイヤーにコマンドを追加
         bean.setName(player.getName());
-        bean.setCommand(command);
+        bean.addCommand(command);
         PlayerBeanManager.setPlayerBean(player, bean);
 
         sendMessage(player, event.getMessage());

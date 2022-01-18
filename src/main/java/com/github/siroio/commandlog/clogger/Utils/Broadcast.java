@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 public class Broadcast {
 
-    private static final StringBuffer sb = new StringBuffer();
+    private static StringBuilder sb;
     private static final Server server = Main.getInstance.getServer();
 
     // 権限関係なくメッセージを送信
@@ -26,6 +26,7 @@ public class Broadcast {
 
     // opのみに出力するかを指定
     public static void sendMessage(ChatColor color, boolean op_only, String... messages) {
+        sb = new StringBuilder();
         sb.append(color);
         for (String msg : messages) sb.append(msg);
 
