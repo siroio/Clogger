@@ -15,8 +15,9 @@ public class PlayerJoinEvents implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        PlayerBean p_bean = new PlayerBean();
+        if(PlayerBeanManager.containPlayer(event.getPlayer())) return;
 
+        PlayerBean p_bean = new PlayerBean();
         p_bean.setName(player.getName());
         PlayerBeanManager.addPlayer(player, p_bean);
     }
