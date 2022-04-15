@@ -1,10 +1,7 @@
 package com.github.siroio.commandlog.clogger.Beans;
 
 import org.bukkit.Location;
-
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Queue;
 
 public class CommandBean implements Serializable {
 

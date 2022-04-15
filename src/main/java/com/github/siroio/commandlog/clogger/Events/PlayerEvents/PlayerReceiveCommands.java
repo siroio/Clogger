@@ -4,16 +4,13 @@ import com.github.siroio.commandlog.clogger.Beans.CommandBean;
 import com.github.siroio.commandlog.clogger.Beans.PlayerBean;
 import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
 import com.github.siroio.commandlog.clogger.Config.Config;
-import com.github.siroio.commandlog.clogger.Main;
 import com.github.siroio.commandlog.clogger.Utils.Broadcast;
 import com.github.siroio.commandlog.clogger.Utils.DateGetter;
-import com.github.siroio.commandlog.clogger.Utils.Logger;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.plugin.Plugin;
 
 public class PlayerReceiveCommands implements Listener {
 
@@ -30,7 +27,7 @@ public class PlayerReceiveCommands implements Listener {
             bean = PlayerBeanManager.getPlayerBean(player);
         }
 
-        // コマンドの追加
+        // 使用されたコマンドの詳細をセット
         command.setCommand(event.getMessage());
         command.setDate(DateGetter.now());
         command.setLocation(player.getLocation());
@@ -45,8 +42,9 @@ public class PlayerReceiveCommands implements Listener {
 
     public void sendMessage(Player player, String command) {
         Broadcast.sendMessage(
-                String.valueOf(ChatColor.GRAY),
-                "[CLOGGER] ",
+                ChatColor.of(Config.getColor()),
+                true,
+                "[CLOG] ",
                 player.getName(),
                 ":",
                 command

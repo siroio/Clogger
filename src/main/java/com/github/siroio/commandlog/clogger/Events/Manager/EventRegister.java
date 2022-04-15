@@ -39,6 +39,6 @@ public final class EventRegister {
     public void unRegisterAll() {
         HandlerList.unregisterAll();
         listenerList.clear();
-        Logger.print("すべてのイベントの登録を解除しました。");
+        Logger.print("登録されているイベントを解除しました。");
     }
 }

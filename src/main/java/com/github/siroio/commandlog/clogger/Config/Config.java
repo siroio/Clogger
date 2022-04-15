@@ -7,8 +7,7 @@ public class Config {
 
     private final Plugin plugin;
     private FileConfiguration config = null;
-
-    private String Color;
+    private static String Color;
 
     public Config(Plugin plugin) {
         this.plugin = plugin;
@@ -20,19 +19,14 @@ public class Config {
         if(config != null) plugin.reloadConfig();
         config = plugin.getConfig();
 
-        config.getString("Color");
+        setColor(config.getString("Color"));
     }
 
-    public String getColor() {
+    public static String getColor() {
         return Color;
     }
 
     public void setColor(String color) {
         Color = color;
     }
-
-    public final FileConfiguration getConfig() {
-        return config;
-    }
-
 }

@@ -8,5 +8,5 @@ description: This is a plugin for keeping a log of commands used by the player.
 website: https://github.com/siroio
 
 commands:
-  clogger:
+  clog:
     permission: op

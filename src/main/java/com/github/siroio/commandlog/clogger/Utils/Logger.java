@@ -2,7 +2,8 @@ package com.github.siroio.commandlog.clogger.Utils;
 
 
 import com.github.siroio.commandlog.clogger.Main;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
+
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ public final class Logger {
     public static void print(ChatColor Color, final String... messages) {
         sb = new StringBuilder();
         sb.append(Color);
-        sb.append("[CLOGGER] ");
+        sb.append("[CLOG] ");
         for(String s : messages) sb.append(s);
         Main.getInstance
                 .getServer()

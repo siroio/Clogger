@@ -1,6 +1,7 @@
 package com.github.siroio.commandlog.clogger;
 
 import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
+import com.github.siroio.commandlog.clogger.Commands.MainCommand;
 import com.github.siroio.commandlog.clogger.Commands.cmd;
 import com.github.siroio.commandlog.clogger.Config.Config;
 import com.github.siroio.commandlog.clogger.Events.Manager.EventManager;
@@ -24,7 +25,7 @@ public final class Main extends JavaPlugin {
         Logger.print("プラグインが有効化されました");
         eventManager.loadEvent();
         config = new Config(this);
-        getCommand("clogger").setExecutor(new cmd());
+        getCommand("clog").setExecutor(new MainCommand());
     }
 
     @Override

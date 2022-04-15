@@ -4,6 +4,7 @@ import com.github.siroio.commandlog.clogger.Events.ConsoleEvents.ConsoleReceiveC
 import com.github.siroio.commandlog.clogger.Events.Inventory.InventoryClickEvents;
 import com.github.siroio.commandlog.clogger.Events.PlayerEvents.PlayerJoinEvents;
 import com.github.siroio.commandlog.clogger.Events.PlayerEvents.PlayerReceiveCommands;
+import com.github.siroio.commandlog.clogger.Events.PlayerEvents.UnknownCommandMessage;
 import org.bukkit.plugin.Plugin;
 
 public class EventManager {
@@ -15,16 +16,16 @@ public class EventManager {
     }
 
     // 登録したいイベントの追加
+    // Do Not Delete This Function
     public void loadEvent() {
-        /// ### イベントリスナーを作成したら以下に追加をしてください。 ///
+        /// イベントリスナーを作成したら以下に追加をしてください。 ///
         eventRegister.addEvent(new PlayerReceiveCommands());
         eventRegister.addEvent(new ConsoleReceiveCommands());
         eventRegister.addEvent(new PlayerJoinEvents());
         eventRegister.addEvent(new InventoryClickEvents());
+        eventRegister.addEvent(new UnknownCommandMessage());
 
-        /// ~~~ 削除をしないでください ~~~ ///
         eventRegister.Register();
-        /// ~~~~~~~~~~~~~~~~~~~~~~~ ///
     }
 
     // 特録解除

@@ -3,10 +3,11 @@ package com.github.siroio.commandlog.clogger.Beans;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class PlayerBeanManager {
 
-    private static HashMap<Player, PlayerBean> PlayerList = new HashMap<>();
+    private static final HashMap<Player, PlayerBean> PlayerList = new HashMap<>();
 
     public static void addPlayer(Player player, PlayerBean bean) {
         PlayerList.put(player, bean);
