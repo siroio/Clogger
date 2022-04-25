@@ -1,7 +1,6 @@
 package com.github.siroio.commandlog.clogger.Events.Manager;
 
-import com.github.siroio.commandlog.clogger.Utils.Logger;
-import org.bukkit.event.Event;
+import com.github.siroio.commandlog.clogger.Wrapper.Logger;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;

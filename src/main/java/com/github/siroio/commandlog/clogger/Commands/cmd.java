@@ -1,16 +1,8 @@
 package com.github.siroio.commandlog.clogger.Commands;
 
-import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
-import com.github.siroio.commandlog.clogger.Config.Config;
-import com.github.siroio.commandlog.clogger.Inventory.GUI;
-import com.github.siroio.commandlog.clogger.Inventory.InvGUIs.testGUI;
-import com.github.siroio.commandlog.clogger.Main;
-import com.github.siroio.commandlog.clogger.Utils.Broadcast;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;

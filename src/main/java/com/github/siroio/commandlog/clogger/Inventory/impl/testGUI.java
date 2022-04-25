@@ -1,4 +1,4 @@
-package com.github.siroio.commandlog.clogger.Inventory.InvGUIs;
+package com.github.siroio.commandlog.clogger.Inventory.impl;
 
 import com.github.siroio.commandlog.clogger.Inventory.GUI;
 import org.bukkit.Material;

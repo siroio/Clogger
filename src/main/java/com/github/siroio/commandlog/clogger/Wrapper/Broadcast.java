@@ -1,4 +1,4 @@
-package com.github.siroio.commandlog.clogger.Utils;
+package com.github.siroio.commandlog.clogger.Wrapper;
 
 import com.github.siroio.commandlog.clogger.Main;
 import net.md_5.bungee.api.ChatColor;

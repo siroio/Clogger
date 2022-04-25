@@ -11,6 +11,8 @@ public class UnknownCommandMessage implements Listener {
     @EventHandler
     public void onMessage(PlayerCommandPreprocessEvent event) {
         // Unknown Command メッセージの無効化
+        if(!event.getPlayer().isOp()) return;
+
         String msg = event.getMessage();
         String[] args = msg.split(" ");
 

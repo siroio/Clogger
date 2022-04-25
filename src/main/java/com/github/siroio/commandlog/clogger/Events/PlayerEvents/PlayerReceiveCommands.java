@@ -4,8 +4,8 @@ import com.github.siroio.commandlog.clogger.Beans.CommandBean;
 import com.github.siroio.commandlog.clogger.Beans.PlayerBean;
 import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
 import com.github.siroio.commandlog.clogger.Config.Config;
-import com.github.siroio.commandlog.clogger.Utils.Broadcast;
-import com.github.siroio.commandlog.clogger.Utils.DateGetter;
+import com.github.siroio.commandlog.clogger.Wrapper.Broadcast;
+import com.github.siroio.commandlog.clogger.Wrapper.DateGetter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,6 +37,7 @@ public class PlayerReceiveCommands implements Listener {
         bean.addCommand(command);
         PlayerBeanManager.setPlayerBean(player, bean);
 
+        //　OP権限を持っている人に実行されたコマンドを送信する。
         sendMessage(player, event.getMessage());
     }
 

@@ -7,12 +7,15 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class PlayerBeanManager {
 
+    // ビーンのハッシュマップ
     private static final HashMap<Player, PlayerBean> PlayerList = new HashMap<>();
 
+    // 指定したプレイヤーをマップに追加
     public static void addPlayer(Player player, PlayerBean bean) {
         PlayerList.put(player, bean);
     }
 
+    // 指定したプレイヤーをマップから除去
     public static void removePlayer(Player player) {
         PlayerList.remove(player);
     }
@@ -20,7 +23,6 @@ public class PlayerBeanManager {
     public static void setPlayerBean(Player player, PlayerBean bean) {
         if(PlayerList.containsKey(player)) PlayerList.replace(player, bean);
         else PlayerList.put(player, bean);
-
     }
 
     public static PlayerBean getPlayerBean(Player player) {

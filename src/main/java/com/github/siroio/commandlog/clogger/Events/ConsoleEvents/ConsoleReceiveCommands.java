@@ -1,7 +1,7 @@
 package com.github.siroio.commandlog.clogger.Events.ConsoleEvents;
 
 import com.github.siroio.commandlog.clogger.Config.Config;
-import com.github.siroio.commandlog.clogger.Utils.Broadcast;
+import com.github.siroio.commandlog.clogger.Wrapper.Broadcast;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

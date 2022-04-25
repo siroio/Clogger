@@ -14,20 +14,18 @@ public class PlayerBean implements Serializable {
         this.name = name;
     }
 
-    public void addCommand(CommandBean command) {
-        if(commandList.size() >= 20)
-            commandList.pollFirst();
-        commandList.offerLast(command);
-    }
-
     // GETTER //
     public final String getName() {
         return this.name;
     }
-
     public final Deque<CommandBean> getCommandList() {
         return commandList;
     }
 
 
+    // コマンドビーンをデックに追加 数が２０を超えたら古いものから削除
+    public void addCommand(CommandBean command) {
+        if(commandList.size() >= 20) commandList.pop();
+        else commandList.add(command);
+    }
 }

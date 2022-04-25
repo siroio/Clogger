@@ -7,7 +7,9 @@ public class Config {
 
     private final Plugin plugin;
     private FileConfiguration config = null;
+
     private static String Color;
+    private static String dbPath;
 
     public Config(Plugin plugin) {
         this.plugin = plugin;
@@ -20,6 +22,7 @@ public class Config {
         config = plugin.getConfig();
 
         setColor(config.getString("Color"));
+        setdbPath(config.getString("DatabasePath"));
     }
 
     public static String getColor() {
@@ -28,5 +31,13 @@ public class Config {
 
     public void setColor(String color) {
         Color = color;
+    }
+
+    public static String getdbPath() {
+        return dbPath;
+    }
+
+    public void setdbPath(String path) {
+        dbPath = path;
     }
 }

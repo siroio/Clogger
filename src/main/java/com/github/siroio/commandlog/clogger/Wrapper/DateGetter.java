@@ -1,4 +1,4 @@
-package com.github.siroio.commandlog.clogger.Utils;
+package com.github.siroio.commandlog.clogger.Wrapper;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

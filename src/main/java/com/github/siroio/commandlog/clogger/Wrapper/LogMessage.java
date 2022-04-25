@@ -1,6 +1,5 @@
-package com.github.siroio.commandlog.clogger.Utils;
+package com.github.siroio.commandlog.clogger.Wrapper;
 
-import com.github.siroio.commandlog.clogger.Beans.PlayerBean;
 import org.bukkit.entity.Player;
 
 public class LogMessage {
