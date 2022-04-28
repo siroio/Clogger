@@ -1,11 +1,13 @@
-# コマンドのログを確認参照できるようにするプラグイン
+# CLOGGER
 
-## 使い方
-- PluginsフォルダにClogger.jarを入れる
+## Overview
+- プレイヤーの使用したコマンドをチェック
 
-## これから
-- configファイルの管理をできるように
-- GUIで操作できるように
-  - GUI内からプレイヤーの参照ができるように
-  - GUI内で色を変更できるように
-  - GUI内で機能の切り替え
+## Requirement
+- Minecraft 1.16.5
+
+## Usage
+- 入れるだけ
+
+## Features
+- /clog log [PlayerName]
