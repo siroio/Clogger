@@ -2,15 +2,17 @@ package com.github.siroio.commandlog.clogger.Commands;
 
 import com.github.siroio.commandlog.clogger.Commands.SubCmd.ShowLog;
 import com.github.siroio.commandlog.clogger.Commands.SubCmd.test;
+import com.github.siroio.commandlog.clogger.Commands.SubCmd.myChatColor;
+import com.github.siroio.commandlog.clogger.Wrapper.BukkitColor;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Bukkit;
-import org.bukkit.Server;
+import org.bukkit.Color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MainCommand implements CommandExecutor, TabCompleter {
 
@@ -21,6 +23,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         Map<String, CommandExecutor> commands = new HashMap<>();
         commands.put("log", new ShowLog());
         commands.put("test", new test());
+        commands.put("color", new myChatColor());
         subCommands = Collections.unmodifiableMap(commands);
     }
 
@@ -52,9 +55,16 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         if(args.length < 1) return null;
 
         String arg0 = args[0].toLowerCase(Locale.ENGLISH);
-        if(arg0.equalsIgnoreCase("test")) return List.of("");
-        if(arg0.equalsIgnoreCase("log")) return null;
-        return Arrays.asList("log", "test");
+        switch (arg0) {
+            case "test":
+                return List.of("");
+            case "log":
+                return null;
+            case "color":
+                return BukkitColor.ToStringList();
+        }
+
+        return Arrays.asList("log", "color", "test");
     }
 
     // エラーメッセージ

@@ -6,6 +6,7 @@ import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
 import com.github.siroio.commandlog.clogger.Config.Config;
 import com.github.siroio.commandlog.clogger.Wrapper.Broadcast;
 import com.github.siroio.commandlog.clogger.Wrapper.DateGetter;
+import com.github.siroio.commandlog.clogger.Wrapper.Logger;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -39,6 +40,8 @@ public class PlayerReceiveCommands implements Listener {
 
         //　OP権限を持っている人に実行されたコマンドを送信する。
         sendMessage(player, event.getMessage());
+        // コンソールにコマンドを送信
+        Logger.print(ChatColor.of(Config.getColor()), player.getName(), ":", event.getMessage());
     }
 
     public void sendMessage(Player player, String command) {

@@ -1,13 +1,10 @@
 package com.github.siroio.commandlog.clogger.Wrapper;
 
-import com.github.siroio.commandlog.clogger.Main;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Server;
+import org.bukkit.Bukkit;
+
 
 public class Broadcast {
-
-    // Server Instance
-    private static final Server server = Main.getInstance.getServer();
 
     // 権限関係なくメッセージを送信
     public static void sendMessage(String... messages) {
@@ -31,11 +28,11 @@ public class Broadcast {
         for (String msg : messages) sb.append(msg);
         // 色を個別に設定
         if(op_only) {
-            server.getOnlinePlayers().forEach(player -> {
+            Bukkit.getOnlinePlayers().forEach(player -> {
                 if(player.isOp()) player.sendMessage(sb.toString());
             });
         }
-        else server.broadcastMessage(sb.toString());
+        else Bukkit.broadcastMessage(sb.toString());
         sb.setLength(0);
     }
 }

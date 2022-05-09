@@ -3,6 +3,7 @@ package com.github.siroio.commandlog.clogger.Wrapper;
 
 import com.github.siroio.commandlog.clogger.Main;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 
 public final class Logger {
 
@@ -19,10 +20,7 @@ public final class Logger {
         sb.append(Color);
         sb.append("[CLOG] ");
         for(String s : messages) sb.append(s);
-        Main.getInstance
-                .getServer()
-                .getConsoleSender()
-                .sendMessage(sb.toString());
+        Bukkit.getServer().getConsoleSender().sendMessage(sb.toString());
         sb.setLength(0);
     }
 }
