@@ -1,5 +1,6 @@
 package com.github.siroio.commandlog.clogger.Commands.SubCmd;
 
+import com.github.siroio.commandlog.clogger.Database.Database;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

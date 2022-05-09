@@ -2,7 +2,7 @@ name: Clogger
 version: '${project.version}'
 main: com.github.siroio.commandlog.clogger.Main
 api-version: 1.16
-prefix: CLOGGER
+prefix: CLOG
 authors: [ siroio ]
 description: This is a plugin for keeping a log of commands used by the player.
 website: https://github.com/siroio

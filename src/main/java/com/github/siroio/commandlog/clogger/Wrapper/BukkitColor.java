@@ -37,7 +37,7 @@ public class BukkitColor {
         return new ArrayList<>(colorMap.keySet());
     }
 
-    public static ChatColor getColor(String name) {
-        return colorMap.get(name);
+    public static ChatColor getColor(String color) {
+        return colorMap.containsKey(color) ? colorMap.get(color) : ChatColor.of(color);
     }
 }

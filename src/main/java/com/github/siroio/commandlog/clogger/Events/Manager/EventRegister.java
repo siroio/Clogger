@@ -5,7 +5,9 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 
 public final class EventRegister {
 
@@ -25,7 +27,7 @@ public final class EventRegister {
 
     // イベントを登録
     public void Register() {
-        listenerList.values().forEach((listener) -> {
+        listenerList.values().stream().filter(Objects::nonNull).forEach((listener) -> {
             plugin.getServer()
                   .getPluginManager()
                   .registerEvents(listener, plugin);

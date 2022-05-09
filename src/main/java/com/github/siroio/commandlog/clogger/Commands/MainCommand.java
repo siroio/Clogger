@@ -1,15 +1,18 @@
 package com.github.siroio.commandlog.clogger.Commands;
 
+import com.github.siroio.commandlog.clogger.Beans.PlayerBeanManager;
 import com.github.siroio.commandlog.clogger.Commands.SubCmd.ShowLog;
 import com.github.siroio.commandlog.clogger.Commands.SubCmd.test;
 import com.github.siroio.commandlog.clogger.Commands.SubCmd.myChatColor;
 import com.github.siroio.commandlog.clogger.Wrapper.BukkitColor;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.HumanEntity;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -59,12 +62,12 @@ public class MainCommand implements CommandExecutor, TabCompleter {
             case "test":
                 return List.of("");
             case "log":
-                return null;
+                return PlayerBeanManager.getPlayerList().keySet().stream().map(HumanEntity::getName).collect(Collectors.toList());
             case "color":
                 return BukkitColor.ToStringList();
         }
 
-        return Arrays.asList("log", "color", "test");
+        return new ArrayList<>(subCommands.keySet());
     }
 
     // エラーメッセージ

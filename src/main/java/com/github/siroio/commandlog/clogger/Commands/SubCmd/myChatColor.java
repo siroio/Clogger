@@ -1,6 +1,8 @@
 package com.github.siroio.commandlog.clogger.Commands.SubCmd;
 
+import com.github.siroio.commandlog.clogger.Database.Database;
 import com.github.siroio.commandlog.clogger.Wrapper.Broadcast;
+import com.github.siroio.commandlog.clogger.Wrapper.BukkitColor;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +18,12 @@ public class myChatColor implements CommandExecutor {
             return false;
         }
 
-        Broadcast.sendMessage(args[1]);
+        if(args.length < 1) {
+            sender.sendMessage(ChatColor.RED + "色を指定してください！");
+            return false;
+        }
+        Player player = (Player) sender;
+        Database.upsertPlayer(player.getUniqueId().toString(), args[1]);
         return false;
     }
 }

@@ -8,29 +8,30 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class ShowLog implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         String targetString = args.length < 2 ? null : args[1];
-        Player targetPlayer = null;
+        AtomicReference<Player> targetPlayer = null;
         PlayerBean targetBean;
 
 
         // プレイヤービーンの中から指定したプレイヤーがいるのか探索
-        for(Player player_ : PlayerBeanManager.getPlayerList().keySet()) {
-            if(!player_.getName().equalsIgnoreCase(targetString)) continue;
-            targetPlayer = player_;
-        }
+        PlayerBeanManager.getPlayerList().keySet().stream()
+                .filter(player -> player.getName().equalsIgnoreCase(targetString))
+                .forEach(targetPlayer::set);
 
-        if(targetPlayer == null) {
+        if(targetPlayer.get() == null) {
             ErrorMessage(sender);
             return false;
         }
 
         // 見つけたプレイヤーのビーンを取得
-        targetBean = PlayerBeanManager.getPlayerBean(targetPlayer);
+        targetBean = PlayerBeanManager.getPlayerBean(targetPlayer.get());
         sendLog(targetBean, sender);
 
         return false;
