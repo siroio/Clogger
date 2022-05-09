@@ -27,7 +27,7 @@ public class Database {
         init();
     }
 
-    public void init() {
+    private void init() {
         try (Connection conn = hikari.getConnection()) {
             Statement s = conn.createStatement();
             s.executeUpdate(CreateTable);
